@@ -1,17 +1,11 @@
 package schema
 
-type Extra struct {
-	HeadName     string
-	StepPosition int
-	Rotation     float64
-}
-
-type Active struct {
+type Heartbeat struct {
 	Component string
-	HeadName  string
-	Extra     Extra
+	Instance  string
+	ID        string
 }
 
-func (*Active) Name() string {
-	return "active"
+func (*Heartbeat) Name() string {
+	return "heartbeat"
 }
