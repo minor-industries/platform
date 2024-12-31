@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"github.com/hashicorp/serf/client"
 	"github.com/pkg/errors"
+	"github.com/samber/mo"
 	"go.uber.org/zap"
 	"net"
 	"strconv"
@@ -18,6 +19,8 @@ type SerfService struct {
 	ServicePort int
 
 	Addr string
+
+	MetricsPath mo.Option[string]
 }
 
 func ParseSerfService(
@@ -66,6 +69,8 @@ func ParseSerfService(
 				result.Addr = fmt.Sprintf("%s:%d", IP.String(), sp)
 			case "i":
 				result.Instance = value
+			case "mpa":
+				result.MetricsPath = mo.Some(value)
 			default:
 				logger.Warn("unknown service tag", zap.String("tag", tagname))
 			}

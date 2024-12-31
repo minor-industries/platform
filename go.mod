@@ -8,6 +8,7 @@ require (
 	github.com/hashicorp/serf v0.10.1
 	github.com/pkg/errors v0.9.1
 	github.com/prometheus/client_golang v1.16.0
+	github.com/samber/mo v1.13.0
 	github.com/soheilhy/cmux v0.1.5
 	github.com/stretchr/testify v1.8.4
 	go.uber.org/atomic v1.11.0
